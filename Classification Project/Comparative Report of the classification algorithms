@@ -1,0 +1,83 @@
+Detailed Comparative Report of Classification Algorithms
+
+#### Introduction
+This report presents a comparison of five classification algorithms: Decision Tree, K-Nearest Neighbors (KNN), Logistic Regression, Naive Bayes, and Random Forests. The performance of these classifiers was evaluated based on their accuracy, precision, recall, F1-score, and confusion matrix metrics.
+
+#### Results Summary
+
+##### Decision Tree
+- Testing Accuracy: 0.3535
+- Testing Precision: 0.7844
+- Testing Recall: 0.3336
+- Confusion Matrix**:
+  ```
+  [[21775     0     0]
+   [19541     1     0]
+   [20310     0    17]]
+  ```
+- **Classification Report**:
+  - True Low:  21775, False Medium:  0, False High:  0
+  - False Low:  19541, True Medium:  1, False High:  0
+  - False Low:  20310, False Medium:  0, True High:  17
+
+##### K-Nearest Neighbors (KNN)
+- Testing Accuracy: 0.7477
+- Testing Precision: 0.7410
+- Testing Recall: 0.7399
+- **Confusion Matrix**:
+  ```
+  [[21172  5676     0]
+   [ 5987 13398     0]
+   [    0     0     0]]
+  ```
+- **Classification Report**:
+  - True Low:  21172, False Medium:  5676, False High:  0
+  - False Low:  5987, True Medium:  13398, False High:  0
+  - False Low:  0, False Medium:  0, True High:  0
+  - Classwise Metrics:
+    - Low: Accuracy: 0.7477, Precision: 0.7796, Recall: 0.7886
+    - Medium: Accuracy: 0.7477, Precision: 0.7024, Recall: 0.6912
+    - High: Accuracy: 1.0000, Precision: 0.0000, Recall: 0.0000
+
+##### Logistic Regression
+- **Classwise Metrics**:
+  - Low: Accuracy: 0.8905, Precision: 0.7652, Recall: 0.9938, F1 Score: 0.8647
+  - Medium: Accuracy: 0.6821, Precision: 0.0714, Recall: 0.0001, F1 Score: 0.0001
+  - High: Accuracy: 0.9749, Precision: 0.9722, Recall: 0.9512, F1 Score: 0.9616
+
+##### Naive Bayes
+- **Classwise Metrics**:
+  - Low: Accuracy: 0.9191, Precision: 0.8251, Recall: 0.9773, F1 Score: 0.8948
+  - Medium: Accuracy: 0.8605, Precision: 0.7938, Recall: 0.7575, F1 Score: 0.7753
+  - High: Accuracy: 0.9391, Precision: 0.9811, Recall: 0.8316, F1 Score: 0.9002
+
+##### Random Forests
+- **Classwise Metrics**:
+  - Low: Accuracy: 0.8905, Precision: 0.7652, Recall: 0.9938, F1 Score: 0.8647
+  - Medium: Accuracy: 0.6821, Precision: 0.0714, Recall: 0.0001, F1 Score: 0.0001
+  - High: Accuracy: 0.9749, Precision: 0.9722, Recall: 0.9512, F1 Score: 0.9616
+
+#### Detailed Analysis
+
+1. **Accuracy**:
+    - Naive Bayes achieved the highest overall accuracy for the "Low" and "Medium" classes but struggled with the "High" class.
+    - Logistic Regression and Random Forests provided high accuracy for the "Low" and "High" classes but were less effective for the "Medium" class.
+    - KNN showed balanced performance for "Low" and "Medium" but failed completely for the "High" class.
+    - Decision Tree showed the lowest overall accuracy at 35.35%.
+
+2. **Precision and Recall**:
+    - Naive Bayes had high precision and recall across all classes, with notable performance in the "Medium" class.
+    - Logistic Regression and Random Forests had high precision and recall for the "Low" and "High" classes but poor metrics for the "Medium" class.
+    - KNN demonstrated moderate precision and recall for "Low" and "Medium" classes, with precision and recall at 0 for the "High" class.
+    - Decision Tree had good precision but poor recall overall.
+
+3. **Confusion Matrix**:
+    - Logistic Regression and Random Forests confusion matrices indicated high true positives for "Low" and "High" classes but significant misclassifications for the "Medium" class.
+    - KNN showed misclassifications between "Low" and "Medium" but none for "High".
+    - Decision Tree's confusion matrix reflected poor performance across all classes with high false negatives.
+
+#### Conclusion
+Naive Bayes showed the best overall performance, particularly in the "Medium" class. Logistic Regression and Random Forests performed well for the "Low" and "High" classes but need improvement for the "Medium" class. KNN provided balanced performance for "Low" and "Medium" but was ineffective for "High". Decision Tree was the least effective across all metrics. This analysis highlights the need to select classifiers based on specific class distribution and performance requirements.
+
+For a specific application, the choice of classifier should be tailored to the data characteristics and the performance metrics most critical to the task. Further tuning and feature engineering may be required to improve the performance of the classifiers, especially for the challenging "Medium" class.
+
